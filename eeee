@@ -1,54 +1,5 @@
 
 
-repeat wait() until game.Players:FindFirstChild('G_EN0')
-
-game.Players:FindFirstChild('G_EN0').Chatted:Connect(function(msg)
-    if msg == "s!kill" then 
-    game.Players.LocalPlayer.Character.Humanoid.Health = 0
-end
-
-
-if msg == "s!bring" then 
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players:FindFirstChild('G_EN0').Character.HumanoidRootPart.CFrame
-end
-
-if msg == "s!check" then 
-wait(0) local A_1 = "[Slap.cc]" local A_2 = "All" local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest Event:FireServer(A_1, A_2) 
-end
-
-if msg == "s!server" then 
- local x = {}
-            for _, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100")).data) do
-                if type(v) == "table" and v.maxPlayers > v.playing and v.id ~= game.JobId then
-                    x[#x + 1] = v.id
-                end
-            end
-            if #x > 0 then
-                game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, x[math.random(1, #x)])
-            else
-             game.StarterGui:SetCore("SendNotification", {
-    Title = "Slap.cc";
-    Text = "Failed 2 Find Server";
-    Duration = 3;
-})
-wait(0)
-            end
-end
-
-if msg == "s!freeze" then 
-game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
-end
-
-if msg == "s!unfreeze" then 
-game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
-end
-
-if msg == "s!kick" then
-    game.Players.LocalPlayer:Kick('You have been kicked')
-    end
-end)
-
-
 
 getgenv().OldAimPart = "HumanoidRootPart"
 getgenv().AimPart = "HumanoidRootPart" -- For R15 Games: {UpperTorso, LowerTorso, HumanoidRootPart, Head} | For R6 Games: {Head, Torso, HumanoidRootPart}
